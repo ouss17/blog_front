@@ -1,0 +1,11 @@
+.darkmode {
+    background: black;
+    color: white;
+    fill: white;
+}
+
+.whitemode {
+    background: white;
+    color: black;
+    fill: black;
+}

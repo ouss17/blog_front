@@ -1,0 +1,21 @@
+.footer {
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyrights {
+    font-weight: bold;
+}
+
+.toggleDark {
+    width: 25px;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
