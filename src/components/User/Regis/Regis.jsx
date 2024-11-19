@@ -8,6 +8,7 @@ import stylesForm from "@/styles/Form.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import darkmodeContext from "@/context/darkmodeContext";
+import { Eye, EyeSlash } from "../../../../public/ressources/svgs";
 
 const Regis = () => {
   const { darkmode, setDarkmode } = useContext(darkmodeContext);
@@ -54,6 +55,8 @@ const Regis = () => {
         }
       });
   };
+  const [visiblePassword, setVisiblePassword] = useState(false)
+
   return (
     <>
       <div className="formLogin">
@@ -65,6 +68,7 @@ const Regis = () => {
             Nom d'utilisateur ou adresse email
           </label>
           <input
+            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
             className={stylesForm.input}
             type="text"
             name="username"
@@ -83,6 +87,7 @@ const Regis = () => {
             Adresse Email
           </label>
           <input
+            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
             className={stylesForm.input}
             type="text"
             name="email"
@@ -105,24 +110,31 @@ const Regis = () => {
           <label className={stylesForm.label} htmlFor="password">
             Mot de passe
           </label>
-          <input
-            className={stylesForm.input}
-            type="password"
-            name="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 8,
-                message: "Password must have at least 8 characters",
-              },
-              pattern: {
-                value:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                message:
-                  "Password must contain at least 1 upper case letter, 1 lower case letter, 1 number and 1 special character",
-              },
-            })}
-          />
+          <div className={stylesForm.inputPassword}>
+
+            <input
+              style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+              className={stylesForm.input}
+              type={visiblePassword ? "text" : "password"}
+              name="password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must have at least 8 characters",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  message:
+                    "Password must contain at least 1 upper case letter, 1 lower case letter, 1 number and 1 special character",
+                },
+              })}
+            />
+            <div className={stylesForm.eye} onClick={() => setVisiblePassword(prev => !prev)}>
+              {!visiblePassword ? <Eye /> : <EyeSlash />}
+            </div>
+          </div>
           <span className={stylesForm.errorMsg}>
             {errors.password?.message}
           </span>
@@ -145,9 +157,8 @@ const Regis = () => {
             <span className={stylesForm.errorMsg}>{errorMsg}</span>
           )}
           <button
-            className={`${stylesForm.buttonForm} ${
-              darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
-            }`}
+            className={`${stylesForm.buttonForm} ${darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
+              }`}
           >
             S'enregistrer
           </button>

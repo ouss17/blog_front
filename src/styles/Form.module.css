@@ -28,8 +28,14 @@
 }
 
 .buttonForm {
-    padding: 5px 10px;
-    background: none;
+    color: #fff;
+    border-radius: 8.5px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    /* border: none; */
 }
 
 .a {
@@ -49,9 +55,25 @@
 
 .color-dark {
     color: white;
-
+    background: black;
 }
 
 .color-white {
     color: black;
+    background: white;
+}
+
+.inputPassword {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.eye {
+    width: 30px;
+    position: absolute;
+    right: 28%;
+    cursor: pointer;
 }

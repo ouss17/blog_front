@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "@/reducers/user";
 import { useRouter } from "next/router";
 import darkmodeContext from "@/context/darkmodeContext";
+import { Eye, EyeSlash } from "../../../../public/ressources/svgs";
 
 const Log = () => {
   const dispatch = useDispatch();
@@ -55,6 +56,8 @@ const Log = () => {
       });
   };
 
+  const [visiblePassword, setVisiblePassword] = useState(false)
+
   return (
     <>
       <div className="formLogin">
@@ -63,6 +66,7 @@ const Log = () => {
             Nom d'utilisateur ou adresse email
           </label>
           <input
+            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
             className={stylesForm.input}
             type="text"
             name="username"
@@ -80,24 +84,31 @@ const Log = () => {
           <label className={stylesForm.label} htmlFor="password">
             Mot de passe
           </label>
-          <input
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 8,
-                message: "Password must have at least 8 characters",
-              },
-              pattern: {
-                value:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                message:
-                  "Password must contain at least 1 upper case letter, 1 lower case letter, 1 number and 1 special characyer",
-              },
-            })}
-            className={stylesForm.input}
-            type="password"
-            name="password"
-          />
+          <div className={stylesForm.inputPassword}>
+
+            <input
+              style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must have at least 8 characters",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  message:
+                    "Password must contain at least 1 upper case letter, 1 lower case letter, 1 number and 1 special characyer",
+                },
+              })}
+              className={stylesForm.input}
+              type={visiblePassword ? "text" : "password"}
+              name="password"
+            />
+            <div className={stylesForm.eye} onClick={() => setVisiblePassword(prev => !prev)}>
+              {!visiblePassword ? <Eye /> : <EyeSlash />}
+            </div>
+          </div>
           <span className={stylesForm.errorMsg}>
             {errors.password?.message}
           </span>
@@ -105,9 +116,8 @@ const Log = () => {
             <span className={stylesForm.errorMsg}>{errorMsg}</span>
           )}
           <button
-            className={`${stylesForm.buttonForm} ${
-              darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
-            }`}
+            className={`${stylesForm.buttonForm} ${darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
+              }`}
             id="connection"
           >
             Connect

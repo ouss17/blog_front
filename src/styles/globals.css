@@ -47,3 +47,8 @@ main {
   padding: 0 20px;
   position: relative;
 }
+
+.cross {
+  width: 100%;
+  stroke: grey;
+}
