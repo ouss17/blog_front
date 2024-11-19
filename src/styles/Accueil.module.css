@@ -1,4 +1,18 @@
-.main {
-    height: 75vh;
-    overflow-y: auto;
+.newPost {
+    width: 60px;
+    border-radius: 60px;
+    background: aqua;
+    border: none;
+    cursor: pointer;
+    height: 60px;
+    position: fixed;
+    right: 8%;
+    bottom: 10%;
+    color: white;
+    font-size: 20px;
+}
+
+.newPost svg {
+    fill: white;
+    width: 30px;
 }

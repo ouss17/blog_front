@@ -2,10 +2,14 @@
     background: black;
     color: white;
     fill: white;
+    border-color: white;
+    stroke: white
 }
 
 .whitemode {
     background: white;
     color: black;
     fill: black;
+    border-color: black;
+    stroke: black
 }

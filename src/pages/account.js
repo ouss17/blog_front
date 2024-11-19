@@ -1,5 +1,5 @@
-import Accueil from "@/components/Accueil/Accueil";
+import User from "@/components/User/User";
 
-export default function Home() {
-  return <div></div>;
+export default function Account() {
+  return <User />;
 }

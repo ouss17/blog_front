@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import styles from "@/styles/Accueil.module.css";
-import stylesDark from "@/styles/Darkmode.module.css";
 import darkmodeContext from "@/context/darkmodeContext";
+import { Plume } from "../../../public/ressources/svgs";
 const Accueil = () => {
-  const { darkmode, setDarkmode } = useContext(darkmodeContext);
   return (
-    <main
-      className={`
-    ${styles.main}
-    ${darkmode ? stylesDark.darkmode : stylesDark.whitemode}`}
-    ></main>
+    <>
+      <button className={styles.newPost}>
+        <Plume />
+        <span>+</span>
+      </button>
+    </>
   );
 };
 

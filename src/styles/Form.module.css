@@ -1,0 +1,57 @@
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid;
+    width: 40%;
+    padding: 30px;
+    border-radius: 35px;
+    margin: 10px auto;
+}
+
+.label {
+    font-size: 14px;
+    align-self: baseline;
+}
+
+.input {
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.inputDate {
+    border-radius: 15px;
+    width: 20%;
+    padding: 10px;
+}
+
+.buttonForm {
+    padding: 5px 10px;
+    background: none;
+}
+
+.a {
+    color: aqua;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.already {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.color-dark {
+    color: white;
+
+}
+
+.color-white {
+    color: black;
+}
