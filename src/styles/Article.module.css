@@ -1,0 +1,70 @@
+.article {
+    width: 30%;
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.headerArticle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dateArticle {
+    color: gray;
+    font-size: 12px;
+}
+
+.dateArticleCreated {}
+
+.dateArticleUpdated {}
+
+.userArticle {
+    color: goldenrod;
+    cursor: pointer;
+}
+
+.titleArticle {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.contentArticle {
+    margin-bottom: 20px;
+}
+
+.imgArticle {}
+
+.actions {
+    width: 8%;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.04);
+    top: 15%;
+    border-radius: 6px;
+}
+
+.edit {
+    margin-bottom: 10px;
+    stroke: green;
+    fill: green;
+}
+
+.actionButton {
+    cursor: pointer;
+}
+
+.delete {
+    fill: red;
+}

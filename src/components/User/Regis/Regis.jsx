@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import { addUser } from "@/reducers/user";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "@/reducers/user";
 
+import darkmodeContext from "@/context/darkmodeContext";
 import stylesForm from "@/styles/Form.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import darkmodeContext from "@/context/darkmodeContext";
 import { Eye, EyeSlash } from "../../../../public/ressources/svgs";
 
 const Regis = () => {
@@ -55,7 +55,7 @@ const Regis = () => {
         }
       });
   };
-  const [visiblePassword, setVisiblePassword] = useState(false)
+  const [visiblePassword, setVisiblePassword] = useState(false);
 
   return (
     <>
@@ -68,7 +68,10 @@ const Regis = () => {
             Nom d'utilisateur ou adresse email
           </label>
           <input
-            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+            style={{
+              background: darkmode ? "black" : "white",
+              color: darkmode ? "white" : "black",
+            }}
             className={stylesForm.input}
             type="text"
             name="username"
@@ -87,7 +90,10 @@ const Regis = () => {
             Adresse Email
           </label>
           <input
-            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+            style={{
+              background: darkmode ? "black" : "white",
+              color: darkmode ? "white" : "black",
+            }}
             className={stylesForm.input}
             type="text"
             name="email"
@@ -111,9 +117,11 @@ const Regis = () => {
             Mot de passe
           </label>
           <div className={stylesForm.inputPassword}>
-
             <input
-              style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+              style={{
+                background: darkmode ? "black" : "white",
+                color: darkmode ? "white" : "black",
+              }}
               className={stylesForm.input}
               type={visiblePassword ? "text" : "password"}
               name="password"
@@ -131,7 +139,10 @@ const Regis = () => {
                 },
               })}
             />
-            <div className={stylesForm.eye} onClick={() => setVisiblePassword(prev => !prev)}>
+            <div
+              className={stylesForm.eye}
+              onClick={() => setVisiblePassword((prev) => !prev)}
+            >
               {!visiblePassword ? <Eye /> : <EyeSlash />}
             </div>
           </div>
@@ -157,8 +168,9 @@ const Regis = () => {
             <span className={stylesForm.errorMsg}>{errorMsg}</span>
           )}
           <button
-            className={`${stylesForm.buttonForm} ${darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
-              }`}
+            className={`${stylesForm.buttonForm} ${
+              darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
+            }`}
           >
             S'enregistrer
           </button>

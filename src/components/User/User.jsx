@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import styles from "@/styles/User.module.css";
-import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 const User = () => {
   const router = useRouter();
   const user = useSelector((state) => state.user.value);

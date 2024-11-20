@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import styles from "@/styles/Header.module.css";
 import darkmodeContext from "@/context/darkmodeContext";
-import stylesDark from "@/styles/Darkmode.module.css";
 import pageContext from "@/context/pageContext";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "@/reducers/user";
+import stylesDark from "@/styles/Darkmode.module.css";
+import styles from "@/styles/Header.module.css";
+import Link from "next/link";
+import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
   const dispatch = useDispatch();
   const disconnect = () => {

@@ -1,19 +1,21 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import "@/styles/globals.css";
 import DarkmodeContext from "@/context/darkmodeContext";
 import PageContext from "@/context/pageContext";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import articles from "@/reducers/articles";
 import stylesDark from "@/styles/Darkmode.module.css";
+import "@/styles/globals.css";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
+import { persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import storage from "redux-persist/lib/storage";
 import user from "../reducers/user";
 
-const reducers = combineReducers({ user });
+const reducers = combineReducers({ user, articles });
 const persistConfig = { key: "carnet-des-mots", storage };
 
 const store = configureStore({
@@ -45,6 +47,7 @@ export default function App({ Component, pageProps }) {
               <Component {...pageProps} />
             </main>
             <Footer />
+            <Toaster />
           </DarkmodeContext.Provider>
         </PageContext.Provider>
       </PersistGate>

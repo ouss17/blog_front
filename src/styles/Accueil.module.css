@@ -16,3 +16,10 @@
     fill: white;
     width: 30px;
 }
+
+.articlesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -5,6 +5,7 @@ const initialState = {
     username: "",
     email: "",
     role: "",
+    id: "",
   },
 };
 
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
         username: action.payload.username,
         email: action.payload.email,
         role: action.payload.role,
+        id: action.payload._id,
       };
     },
     removeUser: (state, action) => {
@@ -25,6 +27,7 @@ export const userSlice = createSlice({
         username: "",
         email: "",
         role: "",
+        id: "",
       };
     },
   },

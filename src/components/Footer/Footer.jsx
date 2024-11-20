@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
-import styles from "@/styles/Footer.module.css";
-import stylesDark from "@/styles/Darkmode.module.css";
 import darkmodeContext from "@/context/darkmodeContext";
+import stylesDark from "@/styles/Darkmode.module.css";
+import styles from "@/styles/Footer.module.css";
+import { useContext, useState } from "react";
 import { Moon, Sun } from "../../../public/ressources/svgs";
 const Footer = () => {
   const [date, setDate] = useState(new Date());

@@ -1,12 +1,12 @@
-import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import darkmodeContext from "@/context/darkmodeContext";
+import { addUser } from "@/reducers/user";
 import stylesForm from "@/styles/Form.module.css";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "@/reducers/user";
-import { useRouter } from "next/router";
-import darkmodeContext from "@/context/darkmodeContext";
 import { Eye, EyeSlash } from "../../../../public/ressources/svgs";
 
 const Log = () => {
@@ -56,7 +56,7 @@ const Log = () => {
       });
   };
 
-  const [visiblePassword, setVisiblePassword] = useState(false)
+  const [visiblePassword, setVisiblePassword] = useState(false);
 
   return (
     <>
@@ -66,7 +66,10 @@ const Log = () => {
             Nom d'utilisateur ou adresse email
           </label>
           <input
-            style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+            style={{
+              background: darkmode ? "black" : "white",
+              color: darkmode ? "white" : "black",
+            }}
             className={stylesForm.input}
             type="text"
             name="username"
@@ -85,9 +88,11 @@ const Log = () => {
             Mot de passe
           </label>
           <div className={stylesForm.inputPassword}>
-
             <input
-              style={{ background: darkmode ? "black" : "white", color: darkmode ? "white" : "black" }}
+              style={{
+                background: darkmode ? "black" : "white",
+                color: darkmode ? "white" : "black",
+              }}
               {...register("password", {
                 required: "Password is required",
                 minLength: {
@@ -105,7 +110,10 @@ const Log = () => {
               type={visiblePassword ? "text" : "password"}
               name="password"
             />
-            <div className={stylesForm.eye} onClick={() => setVisiblePassword(prev => !prev)}>
+            <div
+              className={stylesForm.eye}
+              onClick={() => setVisiblePassword((prev) => !prev)}
+            >
               {!visiblePassword ? <Eye /> : <EyeSlash />}
             </div>
           </div>
@@ -116,8 +124,9 @@ const Log = () => {
             <span className={stylesForm.errorMsg}>{errorMsg}</span>
           )}
           <button
-            className={`${stylesForm.buttonForm} ${darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
-              }`}
+            className={`${stylesForm.buttonForm} ${
+              darkmode ? stylesForm["color-dark"] : stylesForm["color-white"]
+            }`}
             id="connection"
           >
             Connect
