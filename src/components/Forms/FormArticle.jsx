@@ -2,7 +2,7 @@ import darkmodeContext from "@/context/darkmodeContext";
 import stylesForm from "@/styles/Modal.module.css";
 import { useContext } from "react";
 
-const FormAdd = ({ action, register, errors, article }) => {
+const FormArticle = ({ action, register, errors, article }) => {
   const { darkmode, setDarkmode } = useContext(darkmodeContext);
 
   return action == "post" ? (
@@ -105,4 +105,4 @@ const FormAdd = ({ action, register, errors, article }) => {
   );
 };
 
-export default FormAdd;
+export default FormArticle;

@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Delete, Edit } from "../../../public/ressources/svgs";
-import FormAdd from "../FormAdd/FormAdd";
+import FormArticle from "../Forms/FormArticle";
 import Modal from "../Modal/Modal";
 const Article = ({ article }) => {
   const { isShowing, dragDown, dragUp, topModal, opacityOverlay } = useModal();
@@ -107,7 +107,7 @@ const Article = ({ article }) => {
         functionToDo={action == "delete" ? handleDelete : handleEdit}
         setAction={setAction}
       >
-        <FormAdd
+        <FormArticle
           action={action}
           register={register}
           errors={errors}

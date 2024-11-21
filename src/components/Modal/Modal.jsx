@@ -18,6 +18,7 @@ const Modal = ({
   topModal,
   opacityOverlay,
   setAction,
+  errorMsg,
   children,
 }) => {
   const { darkmode, setDarkmode } = useContext(darkmodeContext);
@@ -46,6 +47,7 @@ const Modal = ({
               className={styles.formModal}
             >
               {children}
+              {errorMsg}
               <div className={styles.modalAction}>
                 {showRed && (
                   <button

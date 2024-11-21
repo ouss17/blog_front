@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Plume, SadCry } from "../../../public/ressources/svgs";
 import useModal from "../../lib/useModal";
 import Article from "../Article/Article";
-import FormAdd from "../FormAdd/FormAdd";
+import FormArticle from "../Forms/FormArticle";
 import Modal from "../Modal/Modal";
 const Accueil = () => {
   const { isShowing, dragDown, dragUp, topModal, opacityOverlay } = useModal();
@@ -62,17 +62,15 @@ const Accueil = () => {
         if (datas.result) {
           setErrorMsg("");
           toast.success("Article Posté");
-          // console.log(datas.data);
           reset();
           setAction("");
           dragUp();
           dispatch(getWithBdd(datas.data));
         } else {
-          toast.error(data.error);
-          setErrorMsg(data.error);
+          toast.error(datas.error);
+          setErrorMsg(datas.error);
         }
       });
-    console.log(data);
   };
   return (
     <>
@@ -90,13 +88,16 @@ const Accueil = () => {
         functionToDo={handleLogin}
         setAction={setAction}
       >
-        <FormAdd action={action} register={register} errors={errors} />
+        <FormArticle action={action} register={register} errors={errors} />
       </Modal>
       {articles.length > 0 ? (
         <div className={styles.articlesContainer}>{displayArticles}</div>
       ) : (
-        <p>
-          Aucun post disponible <SadCry />
+        <p className={styles.noPost}>
+          Aucun post disponible{" "}
+          <span>
+            <SadCry />
+          </span>
         </p>
       )}
       {user.role !== "" && (

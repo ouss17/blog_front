@@ -101,6 +101,7 @@
 .textarea {
     max-height: 190px;
     overflow: auto;
+    height: 190px;
 }
 
 .title-content {
